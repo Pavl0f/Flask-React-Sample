@@ -1,11 +1,7 @@
 import sys
 from backend import server
 
-
-server.run(debug=True, host="127.0.0.1", port=8000)
-
-# # 開発環境
-# if "--dev" in sys.argv:
-#     server.run(debug=True, host="127.0.0.1", port=8000)
-# elif "--test" in sys.argv:
-#     pass
+if "--dev" in sys.argv:
+    server.run(debug=True, host="127.0.0.1", port=8000)
+elif "--prod" in sys.argv:
+    server.run(debug=False, host="0.0.0.0", port=80)
