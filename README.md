@@ -11,6 +11,7 @@ PostgreSQL: 9.2.24
 
 # Set Up
 
+```
 ## パッケージインストール
 sudo yum install -y git gcc python3-devel
 sudo yum install -y postgresql postgresql-server postgresql-devel 
@@ -63,7 +64,9 @@ echo export PGPASS=****** >> ~/.bashrc
 echo export PGUSERNAME=postgres >> ~/.bashrc
 echo export FLASK_SECRET=*************************** >> ~/.bashrc
 source ~/.bashrc
-
+```
 
 # Run
+```
 sudo -E python3 app.py --prod
+```
