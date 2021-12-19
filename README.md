@@ -2,12 +2,14 @@
 Flask x REACT x Postgresql on EC2 
 
 # Environment
+```
 AMI: amzn2-ami-hvm-2.0.20211005.0-x86_64-gp2
 Python: 3.7.10
 Pip: 20.2.2
 Node: 16.13.1
 npm: 8.1.2
 PostgreSQL: 9.2.24
+```
 
 # Set Up
 
