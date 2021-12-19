@@ -204,5 +204,6 @@ frontend/dist/main.js
 frontend/dist/main.js.map
 frontend/dist/main.js.LICENSE.txt
 temp
+docs
 
 # End of https://www.gitignore.io/api/osx
