@@ -1,5 +1,5 @@
 # Overview
-Flask
+Flask x REACT x Postgresql on EC2 
 
 # Environment
 AMI: amzn2-ami-hvm-2.0.20211005.0-x86_64-gp2
