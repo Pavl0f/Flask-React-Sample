@@ -11,7 +11,7 @@ npm: 8.1.2
 PostgreSQL: 9.2.24
 ```
 
-# Set Up
+# Set Up (Local DB)
 
 ```
 ## パッケージインストール
@@ -66,6 +66,53 @@ echo export PG_PASS=****** >> ~/.bashrc
 echo export PG_USERNAME=postgres >> ~/.bashrc
 echo export PG_URL=127.0.0.1:5432 >> ~/.bashrc
 echo export PG_DBNAME=testdb >> ~/.bashrc
+
+echo export FLASK_SECRET=*************************** >> ~/.bashrc
+source ~/.bashrc
+```
+
+# Set Up (RDS)
+
+```
+## パッケージインストール
+sudo yum install -y git gcc python3-devel
+sudo yum install -y postgresql postgresql-server postgresql-devel 
+
+## node (v16.13.1) インストール
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install 16.13.1
+
+## リポジトリクローン
+git clone https://github.com/Pavl0f/Flask-React-Sample.git
+cd Flask-React-Sample
+
+## ビルド
+npm install
+npm run production
+
+## Python モジュール インストール
+sudo pip3 install -r requirements.txt
+
+## RDS setup
+psql \
+--host=$RDS_ENDPOINT \
+--port=$RDS_PORT \
+--username=$RDS_USERNAME \
+--dbname=$RDS_DBNAME
+
+postgres=# create table client(
+    client_code varchar(32) primary key,
+    username varchar(32),
+    email varchar(64) unique,
+    password varchar(64)
+);
+
+## 環境変数設定
+echo export PG_PASS=****** >> ~/.bashrc
+echo export PG_USERNAME=$RDS_USERNAME >> ~/.bashrc
+echo export PG_URL="${RDS_ENDPOINT}:${RDS_PORT}" >> ~/.bashrc
+echo export PG_DBNAME=$RDS_DBNAME >> ~/.bashrc
 
 echo export FLASK_SECRET=*************************** >> ~/.bashrc
 source ~/.bashrc

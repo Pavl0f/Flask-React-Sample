@@ -11,7 +11,7 @@ def createServer():
 # DB を作成
 def createDB(server):
     
-    pg_url=dburlos.environ.get("PG_URL")        # 127.0.0.1:5432
+    pg_url=os.environ.get("PG_URL")        # 127.0.0.1:5432
     pg_username=os.environ.get("PG_USERNAME")   # postgres
     pg_dbname=os.environ.get("PG_DBNAME")       # testdb
     pg_password=os.environ.get("PG_PASS")       # password
