@@ -126,7 +126,10 @@ sudo pip3 install gunicorn
 sudo amazon-linux-extras install nginx1 -y
 
 ## プロキシ用の Nginx の設定ファイル作成
-cat <<EOL >> nginx.conf
+vi nginx.conf
+```
+
+```
 user nginx;
 worker_processes auto;
 error_log /var/log/nginx/error.log;
@@ -178,8 +181,9 @@ http {
         }
     }
 }
-EOL
+```
 
+```
 ## Nginx の設定を書き換え
 sudo cp nginx.conf /etc/nginx/nginx.conf
 
