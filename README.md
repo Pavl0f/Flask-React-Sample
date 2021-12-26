@@ -189,12 +189,12 @@ sudo systemctl enable nginx
 ```
 
 
-# Run (Nginx あり)
+# Run (Nginx なし)
 ```
 sudo -E python3 app.py --prod
 ```
 
-# Run (Nginx なし)
+# Run (Nginx あり)
 ```
 gunicorn app:server -c gunicorn-settings.py
 ```
