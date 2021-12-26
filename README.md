@@ -1,5 +1,6 @@
 # Overview
-Flask x REACT x Postgresql on EC2 
+- Flask x REACT x Postgresql/RDS
+- Nginx x Gunicorn x Flask x REACT x Postgresql/RDS
 
 # Environment
 ```
