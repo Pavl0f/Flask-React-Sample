@@ -8,21 +8,16 @@ def createServer():
     server = Flask(__name__, template_folder="../frontend/dist", static_folder="../frontend/dist")
     return server
 
-
-def createDB(server, isDev=True, dburl="127.0.0.1:5432", dbname="testdb"):
-
-    isDev = True
+# DB を作成
+def createDB(server):
     
-    # 開発環境で検証する場合は、ローカルのPostgresを使う
-    if isDev:        
-        pg_url=dburl
-        pg_username=os.environ.get("PGUSERNAME")
-        pg_dbname=dbname
-        pg_password=os.environ.get("PGPASS")
-        db_url = f'postgresql+psycopg2://{pg_username}:{pg_password}@{pg_url}/{pg_dbname}'
+    pg_url=dburlos.environ.get("PG_URL")        # 127.0.0.1:5432
+    pg_username=os.environ.get("PG_USERNAME")   # postgres
+    pg_dbname=os.environ.get("PG_DBNAME")       # testdb
+    pg_password=os.environ.get("PG_PASS")       # password
     
     # DBインスタンスを生成
-    server.config['SQLALCHEMY_DATABASE_URI'] = db_url
+    server.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://{pg_username}:{pg_password}@{pg_url}/{pg_dbname}'
     db = SQLAlchemy(server)
     
     return db
