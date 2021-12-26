@@ -62,8 +62,11 @@ postgres=# create table client(
 );
 
 ## 環境変数設定
-echo export PGPASS=****** >> ~/.bashrc
-echo export PGUSERNAME=postgres >> ~/.bashrc
+echo export PG_PASS=****** >> ~/.bashrc
+echo export PG_USERNAME=postgres >> ~/.bashrc
+echo export PG_URL=127.0.0.1:5432 >> ~/.bashrc
+echo export PG_DBNAME=testdb >> ~/.bashrc
+
 echo export FLASK_SECRET=*************************** >> ~/.bashrc
 source ~/.bashrc
 ```
