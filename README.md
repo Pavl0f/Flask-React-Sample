@@ -120,10 +120,12 @@ source ~/.bashrc
 
 # Set Up (Nginx を使う場合)
 
+```
+## Gunicorn と Nginx をインストール
 sudo pip3 install gunicorn
 sudo amazon-linux-extras install nginx1 -y
 
-
+## プロキシ用の Nginx の設定ファイル作成
 cat <<EOL >> nginx.conf
 user nginx;
 worker_processes auto;
@@ -178,10 +180,14 @@ http {
 }
 EOL
 
+## Nginx の設定を書き換え
 sudo cp nginx.conf /etc/nginx/nginx.conf
 
+## Nginx を起動
 sudo systemctl start nginx
 sudo systemctl enable nginx
+```
+
 
 # Run (Nginx あり)
 ```
