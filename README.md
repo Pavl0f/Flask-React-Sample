@@ -12,7 +12,7 @@ npm: 8.1.2
 PostgreSQL: 9.2.24
 ```
 
-# Set Up (Local DB)
+# Set Up (Local DB を使う場合)
 
 ```
 # リポジトリのクローン
@@ -38,7 +38,7 @@ echo export FLASK_SECRET=*************************** >> ~/.bashrc
 source ~/.bashrc
 ```
 
-# Set Up (RDS)
+# Set Up (RDS を使う場合)
 
 ```
 # リポジトリのクローン
