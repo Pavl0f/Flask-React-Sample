@@ -15,12 +15,13 @@ PostgreSQL: 9.2.24
 # Set Up (Local DB)
 
 ```
+# リポジトリのクローン
 sudo yum install -y git
 git clone https://github.com/Pavl0f/Flask-React-Sample.git
 cd Flask-React-Sample
 
 # 初期設定 (モジュールのインストール〜アプリケーションのビルド・データベースの作成)
-bash setup.sh
+bash setup-localdb.sh
 
 # postgres ユーザのパスワードを更新
 psql -U postgres
@@ -40,39 +41,30 @@ source ~/.bashrc
 # Set Up (RDS)
 
 ```
-## パッケージインストール
-sudo yum install -y git gcc python3-devel
-sudo yum install -y postgresql postgresql-server postgresql-devel 
-
-## node (v16.13.1) インストール
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install 16.13.1
-
-## リポジトリクローン
+# リポジトリのクローン
+sudo yum install -y git
 git clone https://github.com/Pavl0f/Flask-React-Sample.git
 cd Flask-React-Sample
 
-## ビルド
-npm install
-npm run production
+# 初期設定 (モジュールのインストール〜アプリケーションのビルド)
+bash setup-rds.sh
 
-## Python モジュール インストール
-sudo pip3 install -r requirements.txt
+# 事前に作成した RDS のパラメータを設定
+echo export RDS_ENDPOINT=xxxx.yyyy.ap-northeast-1.rds.amazonaws.com >> ~/.bashrc
+echo export RDS_PORT=5432 >> ~/.bashrc
+echo export RDS_USERNAME=postgres >> ~/.bashrc
+echo export RDS_DBNAME=testdb >> ~/.bashrc
+source ~/.bashrc
 
 ## RDS setup
-psql \
---host=$RDS_ENDPOINT \
---port=$RDS_PORT \
---username=$RDS_USERNAME \
---dbname=$RDS_DBNAME
-
-postgres=# create table client(
+psql --host=$RDS_ENDPOINT --port=$RDS_PORT --username=$RDS_USERNAME --dbname=$RDS_DBNAME << EOF
+create table client(
     client_code varchar(32) primary key,
     username varchar(32),
     email varchar(64) unique,
     password varchar(64)
 );
+EOF
 
 ## 環境変数設定
 echo export PG_PASS=****** >> ~/.bashrc
@@ -161,7 +153,7 @@ sudo systemctl enable nginx
 
 # Run
 ```
-sudo -E python3 Flask-React-Sample/app.py --prod
+sudo -E python3 app.py --prod
 ```
 
 # Options (Nginx をつける)
