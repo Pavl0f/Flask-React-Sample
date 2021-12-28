@@ -9,10 +9,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 . ~/.nvm/nvm.sh
 nvm install 16.13.1
 
-# リポジトリクローン
-git clone https://github.com/Pavl0f/Flask-React-Sample.git
-cd Flask-React-Sample
-
 # ビルド
 npm install
 npm run production
