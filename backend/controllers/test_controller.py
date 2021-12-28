@@ -12,4 +12,4 @@ def test():
     req = request.get_json()
     print(req)
 
-    return "Test Success", 200
+    return jsonify({}), 200
