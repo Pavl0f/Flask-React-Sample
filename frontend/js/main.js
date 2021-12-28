@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import {Button} from "./js/ui/buttons"
-
 
 class Main extends Component {
     constructor(props) {

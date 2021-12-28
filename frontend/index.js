@@ -10,6 +10,7 @@ import {
 import Root from "./js/root"
 import Main from "./js/main"
 import Signup from "./js/signup"
+import Test from "./js/test"
 
 import './scss/index'
 
@@ -39,6 +40,7 @@ class Index extends Component {
           {/* 認証不要 */}
           <Route exact path="/" component={Root}/>
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/test" component={Test} />
 
           {/* 認証必要 */}
           <Auth path="/main">

@@ -82,7 +82,7 @@ sudo -E python3 app.py --prod
 # Options (Nginx)
 ```
 # Nginx 設定
-bash setup-rds.sh
+bash setup-nginx.sh
 
 # Guinicorn からサーバを起動
 gunicorn app:server -c gunicorn-settings.py

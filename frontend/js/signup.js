@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import {Button} from "./ui/buttons"
 import {TextBox, PasswordBox} from './ui/texts'
 import request from "superagent";
-// import {password_minimum, password_kind, password_policy} from "../settings"
-
 
 class Signup extends Component {
     constructor(props) {
@@ -39,7 +37,6 @@ class Signup extends Component {
     }
 
     render() {
-        console.log(this.state)
 
         return (
             <div id="signup" className="flex-column-center">

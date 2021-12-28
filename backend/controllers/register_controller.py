@@ -1,5 +1,4 @@
 from flask import Blueprint, request, jsonify
-# from app.helpers.database_helpers import addClient, getAllEmailFromClient
 import os
 from backend import db
 from backend.models.client import Client
