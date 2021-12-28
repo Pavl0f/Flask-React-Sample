@@ -3,9 +3,9 @@ import os
 import traceback
 import time, random
 
-mod_test = Blueprint('test', __name__)
+mod_testapi = Blueprint('testapi', __name__)
 
-@mod_test.route('/test', methods=["GET","POST"])
+@mod_testapi.route('/testapi', methods=["GET","POST"])
 def test():
 
     # データの受け取り

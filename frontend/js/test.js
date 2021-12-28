@@ -15,7 +15,7 @@ class Test extends Component {
 
     // 完了ボタンのコールバック
     onClick(e){
-        request.post('/test').set('Content-Type', 'application/json; charset=utf-8').send(this.state).end((error, res) => {                
+        request.post('/testapi').set('Content-Type', 'application/json; charset=utf-8').send(this.state).end((error, res) => {                
             var res = JSON.parse(res.text);
             console.log(res);
         });        

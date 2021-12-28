@@ -45,5 +45,5 @@ server.register_blueprint(mod_logout)
 from backend.controllers.authenticate_controller import mod_authenticate
 server.register_blueprint(mod_authenticate)
 
-from backend.controllers.test_controller import mod_test
+from backend.controllers.testapi_controller import mod_testapi
 server.register_blueprint(mod_test)
